@@ -18,17 +18,16 @@ namespace Fibonacci {
             Console.Out.WriteLine();
         }
 
-        static BigInteger CreateFibonacciNumber(int index) {
-            if (index == 0) return 0;
-            if (index == 1) return 1;
-            return CreateFibonacciNumber(index - 1) + CreateFibonacciNumber(index - 2);
-        }
-
         static BigInteger[] CreateFibonacciSeries(int count) {
-            BigInteger[] fibonacciSeries = new BigInteger[count];
-            for (int i = 0; i < count; i++)
-                fibonacciSeries[i] = CreateFibonacciNumber(i);
-            return fibonacciSeries;
+            BigInteger[] fibonacci = new BigInteger[count];
+            fibonacci[0] = 0;
+            fibonacci[1] = 1;
+
+            for (int i = 2; i < count; i++) {
+                fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+            }
+
+            return fibonacci;
         }
     }
 }
